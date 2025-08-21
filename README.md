@@ -6,8 +6,7 @@
 
 ## Overview
 
-The **AI Research Agent** is designed to act like a lightweight research assistant.  
-It leverages **OpenAI’s GPT models** (with LangChain integration) and a set of tools to:
+This **AI Research Agent** leverages **OpenAI’s GPT models** (with LangChain integration) and a set of tools to:
 
 - **Search** for information  
 - **Retrieve summaries** (via Wikipedia and search APIs)  
@@ -20,7 +19,6 @@ This project demonstrates how to build a **tool-augmented research workflow** wi
 
 ## Features
 
-- **Structured output** enforced via `PydanticOutputParser`  
 - **Custom research schema**: returns topic, summary, sources, and tools used  
 - **Tool integration**:
   - `search_tool` → external search for information  
@@ -91,7 +89,7 @@ Enter your query (e.g. *“Latest trends in AI research agents”*) and get a st
 **User Input**:
 
 ```
-What can i help you research? 
+What can I help you research? 
 Advances in renewable energy storage
 ```
 
@@ -111,16 +109,6 @@ Advances in renewable energy storage
 
 ---
 
-## Project Structure
-
-```
-├── main.py              # Entry point: runs the research agent
-├── tools/               # Folder containing search, wiki, and save tool implementations
-├── requirements.txt     # Python dependencies
-├── .env                 # API keys
-```
-
----
 
 ## Future Enhancements
 
