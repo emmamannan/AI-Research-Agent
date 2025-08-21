@@ -20,7 +20,7 @@ save_tool = Tool(
 
 search = DuckDuckGoSearchRun()
 search_tool = Tool(
-    name="serach",
+    name="search",
     func=search.run,
     description="Search the web for information",
 )
