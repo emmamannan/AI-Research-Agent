@@ -1,0 +1,15 @@
+--- Research Output ---
+Timestamp: 2025-08-21 15:34:14
+
+Country,Population_2024_est
+Indonesia,277000000
+Philippines,117000000
+Vietnam,98000000
+Thailand,71900000
+Myanmar,54000000
+Malaysia,33800000
+Cambodia,17000000
+Laos,7000000
+Singapore,5900000
+Brunei,470000
+
