@@ -73,42 +73,48 @@ ANTHROPIC_API_KEY=your_anthropic_key   # if using Anthropic
 ```bash
 python main.py
 ```
-
-You’ll be prompted with:
-
-```bash
-What can I help you research?
-```
-
-Enter your query (e.g. *“Latest trends in AI research agents”*) and get a structured response.
-
 ---
 
-## Example
+### ⚙️ Workflow
 
-**User Input**:
+1. **User Query**
 
-```
-What can I help you research? 
-Advances in renewable energy storage
-```
+   * You enter a research question (e.g., *"What are the latest advancements in quantum computing?"*).
 
-**Output**:
+2. **Prompt Construction**
 
-```json
-{
-  "topic": "Advances in renewable energy storage",
-  "summary": "Recent progress includes improved lithium-ion battery efficiency, expansion of solid-state batteries, and innovations in grid-scale storage like flow batteries and compressed air energy storage.",
-  "sources": [
-    "https://example.com/source1",
-    "https://en.wikipedia.org/wiki/Renewable_energy_storage"
-  ],
-  "tools_used": ["search_tool", "wiki_tool", "save_tool"]
-}
-```
+   * A **chat prompt template** defines the assistant’s behavior:
 
+     * Act as a research assistant
+     * Use tools when necessary
+     * Output results in a strict JSON-like structure
+
+3. **Tool Selection via Agent**
+
+   * A LangChain **agent** decides which tools to call:
+
+     * 🌐 `search_tool` → queries DuckDuckGo for general web information
+     * 📖 `wiki_tool` → fetches concise results from Wikipedia
+     * 💾 `save_tool` → writes structured findings into a text file for later use
+
+4. **Response Parsing**
+
+   * The agent’s raw output is validated and parsed into a **Pydantic model** (`ResearchResponse`) with four fields:
+
+     ```json
+     {
+       "topic": "string",
+       "summary": "string",
+       "sources": ["list of strings"],
+       "tools_used": ["list of strings"]
+     }
+     ```
+
+5. **Final Output**
+
+   * The structured response is displayed in the terminal and optionally saved to `research_output.txt` with a timestamp.
+   
 ---
-
 
 ## Future Enhancements
 
